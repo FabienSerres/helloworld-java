@@ -1,0 +1,13 @@
+name: Worflow basique
+
+on: push
+
+jobs:
+  main_job:
+    runs-on: ubuntu:latest
+
+    steps:
+      - name: "Setup Java JDK"
+        uses: actions/setup-java@v4.5.0
+      - name: "Job de build"
+        run: mvn clean package -DskipTests -Djar.finalName=$GITHUB_REPOSITORY-$PROJECT_VERSION
