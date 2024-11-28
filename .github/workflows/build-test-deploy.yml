@@ -14,6 +14,6 @@ jobs:
         uses: actions/setup-java@v4.5.0
         with:
           java-version: 17
-          distribution: zulu
+          distribution: 'zulu'
       - name: "Job de build"
         run: mvn clean package -DskipTests -Djar.finalName=${{github.repository}}-${{vars.PROJECT_VERSION}}
