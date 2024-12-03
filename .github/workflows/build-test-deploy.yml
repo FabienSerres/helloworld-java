@@ -39,6 +39,9 @@ jobs:
     needs: build
     
     steps:
-      - name: "Lancement des tests"
-        run: mvn test
+       - name: "Checkout"
+         uses: actions/checkout@v4.2.2
+    
+       - name: "Lancement des tests"
+         run: mvn test
     
