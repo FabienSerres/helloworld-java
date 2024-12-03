@@ -24,15 +24,15 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
-          
-      - name: "Job de build"
-        run: mvn clean package -DskipTests -Djar.finalName=${{github.repository}}-${{vars.PROJECT_VERSION}} 
-        
+
       - name: "Cache"
         uses: actions/cache@v4.1.2
         with:
           path: "/home/runner/work/lib"
           key: dependances
+          
+      - name: "Job de build"
+        run: mvn clean package -DskipTests -Djar.finalName=${{github.repository}}-${{vars.PROJECT_VERSION}} 
 
   test:
     runs-on: ubuntu-latest
