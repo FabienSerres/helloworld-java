@@ -5,7 +5,7 @@ on:
     branches:
       - main
 env:
-  MAVEN_OPTS: "-Dmaven.repo.local=/pom.xml"
+  MAVEN_OPTS: "-Dmaven.repo.local=/helloworld-java/pom.xml"
 
 jobs:
   main_job:
