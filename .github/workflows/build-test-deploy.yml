@@ -9,7 +9,7 @@ on:
       -main
       
 env:
-  MAVEN_OPTS: "-DskipTests -Djar.finalName=helloworld-${{vars.PROJECT_VERSION}} -Dmaven.repo.local=/home/runner/work/lib"
+  MAVEN_OPTS: "-Dmaven.repo.local=/home/runner/work/lib"
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
       - name: "Cache"
         uses: actions/cache@v4.1.2
         with:
-          path: ${{env.MAVEN_OPTS}}
+          path: "/home/runner/work/lib"
           key: dependances
 
   test:
