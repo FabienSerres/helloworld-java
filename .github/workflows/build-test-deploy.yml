@@ -5,7 +5,7 @@ on:
     branches:
       - main
 env:
-  MAVEN_OPTS: "-Dmaven.repo.local=/helloworld-java/pom.xml"
+  MAVEN_OPTS: "-DskipTests -Djar.finalName=helloworld-$PROJECT_VERSION -Dmaven.repo.local=/home/runner/work/lib"
 
 jobs:
   main_job:
