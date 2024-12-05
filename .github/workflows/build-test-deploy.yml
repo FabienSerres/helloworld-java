@@ -36,6 +36,8 @@ jobs:
 
       - name: "Download d'artifact"
         uses: actions/download-artifact@v4.1.8
+        with:
+          path: /home/runner/work/helloworld-java/helloworld-java/target/helloworld-${{github.repository}}-${{vars.PROJECT_VERSION}} 
 
   test:
     runs-on: ubuntu-latest
