@@ -37,6 +37,7 @@ jobs:
       - name: "Upload d'artifact"
         uses: actions/upload-artifact@v4.4.3
         with:
+          name: artifact
           path: /home/runner/work/helloworld-java/helloworld-java/target/${{github.repository}}-${{vars.PROJECT_VERSION}}.jar
           if-no-files-found: warn
 
@@ -62,4 +63,14 @@ jobs:
     
        - name: "Lancement des tests"
          run: mvn test
+
+  deploy:
+    runs-on: ununtu-latest
+    needs: [build, test]
+
+    steps:
+      - name: "Download Artifact"
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: artifact
     
