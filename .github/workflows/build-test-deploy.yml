@@ -34,8 +34,8 @@ jobs:
       - name: "Job de build"
         run: mvn clean package -DskipTests -Djar.finalName=${{github.repository}}-${{vars.PROJECT_VERSION}} 
 
-      - name: "Download d'artifact"
-        uses: actions/download-artifact@v4.1.8
+      - name: "Upload d'artifact"
+        uses: actions/upload-artifact@v4.4.3
         with:
           path: /home/runner/work/helloworld-java/helloworld-java/target/FabienSerres/${{github.repository}}-${{vars.PROJECT_VERSION}}.jar
           if-no-files-found: warn
