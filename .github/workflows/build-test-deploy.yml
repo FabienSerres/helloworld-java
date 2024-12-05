@@ -38,6 +38,7 @@ jobs:
         uses: actions/download-artifact@v4.1.8
         with:
           path: /home/runner/work/helloworld-java/helloworld-java/target/helloworld-${{github.repository}}-${{vars.PROJECT_VERSION}} 
+          if-no-files-found: warn
 
   test:
     runs-on: ubuntu-latest
@@ -52,6 +53,12 @@ jobs:
          with:
           java-version: 17
           distribution: 'zulu'
+
+       - name: "Cache" 
+         uses: actions/cache@v4.1.2
+         with:
+           path: "/home/runner/work/lib"
+           key: ${{ runner.os }}-maven-${{ hashFiles('**pom.xml') }}
     
        - name: "Lancement des tests"
          run: mvn test
