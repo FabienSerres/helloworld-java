@@ -34,6 +34,9 @@ jobs:
       - name: "Job de build"
         run: mvn clean package -DskipTests -Djar.finalName=${{github.repository}}-${{vars.PROJECT_VERSION}} 
 
+      - name: "Download d'artifact"
+        uses: actions/download-artifact@v4.1.8
+
   test:
     runs-on: ubuntu-latest
     needs: build
